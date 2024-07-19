@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <SDL\SDL.h>
+#include "Framebuffer.h"
 
 class Window {
 private:
@@ -10,13 +11,12 @@ private:
   SDL_Renderer* renderer;
   SDL_Texture* texture;
   int width, height;
+
 public:
   Window(int w, int h);
   ~Window();
   void initialize_SDL(bool full_screen);
-  void setup();
   void process_input();
-  void update();
-  void render(Uint32* frame_buffer);
+  void render(Framebuffer* frame_buffer);
   bool get_running() const;
 };

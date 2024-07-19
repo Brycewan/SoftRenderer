@@ -1,49 +1,34 @@
 #include <iostream>
-#include "window.h"
-#include "draw.h"
+#include "Window.h"
+#include "Framebuffer.h"
+#include "Scene.h"
+#include "Shader.h"
 
-int WINDOW_WIDTH = 1600;
-int WINDOW_HEIGHT = 1200;
-Uint32* frame_buffer = new Uint32[WINDOW_WIDTH * WINDOW_HEIGHT];
-
-void clear_frame_buffer() {
-  for (int i = 0; i < WINDOW_WIDTH * WINDOW_HEIGHT; ++i) {
-    frame_buffer[i] = 0;
-  }
-}
+int WINDOW_WIDTH = 800;
+int WINDOW_HEIGHT = 800;
 
 int main(int argc, char* args[]) {
   Window window(WINDOW_WIDTH, WINDOW_HEIGHT);
   window.initialize_SDL(false);
 
-//   setup();
+  Framebuffer framebuffer(WINDOW_WIDTH, WINDOW_HEIGHT);
 
   while (window.get_running()) {
     window.process_input();
 
-    // update();
-
     // clear frame
-    clear_frame_buffer();
-
-    // draw frame
-    // for (int i = 0; i < 9 * 9 * 9; i++) {
-    //   draw_rectangle(frame_buffer, output_cube[i].x, output_cube[i].y, 5, 5, 0xffffff00);
-    // }
+    //clear_frame_buffer();
+    framebuffer.clear();
 
     //// test draw function
-    draw_pixel(frame_buffer, 100, 200, 0xffffffff);
-    draw_rectangle(frame_buffer, 800, 600, 10, 10, 0xffffff00);
-    DDA_line(frame_buffer, 100, 200, 800, 900, 0x00ffffff);
-    Bresenham_line(frame_buffer, 800, 900, 100, 500, 0x00ffffff);
+    framebuffer.draw_pixel(100, 200, 0xffffffff);
+    framebuffer.draw_rectangle(400, 300, 10, 10, 0xffffff00);
+    framebuffer.DDA_line(100, 200, 400, 450, 0x00ffffff);
+    framebuffer.Bresenham_line(400, 450, 50, 250, 0x00ffffff);
 
     // render frame
-    window.render(frame_buffer);
+    window.render(&framebuffer);
   }
-
-  // deacllocate
-  window.~Window();
-  delete[] frame_buffer;
-
+  
   return 0;
 }

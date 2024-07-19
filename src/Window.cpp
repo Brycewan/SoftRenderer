@@ -1,4 +1,4 @@
-#include "window.h"
+#include "Window.h"
 
 Window::Window(int w, int h) : 
   width(w), 
@@ -75,9 +75,6 @@ void Window::initialize_SDL(bool full_screen) {
   is_running = true;
 }
 
-void Window::setup() {
-  //SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // black
-}
 
 void Window::process_input() {
   SDL_Event event;
@@ -94,14 +91,10 @@ void Window::process_input() {
   }
 }
 
-void Window::update() {
-  
-}
-
-void Window::render(Uint32* frame_buffer) {
+void Window::render(Framebuffer* frame_buffer) {
   // Clear the current rendering target with the drawing color.
   //SDL_RenderClear(renderer);
-  SDL_UpdateTexture(texture, nullptr, frame_buffer, width * sizeof(Uint32));
+  SDL_UpdateTexture(texture, nullptr, frame_buffer->get_frame_buffer(), width * sizeof(Uint32));
   // copy texture to renderer
   SDL_RenderCopy(renderer, texture, nullptr, nullptr);
   // display update

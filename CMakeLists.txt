@@ -12,10 +12,10 @@ include_directories(include)
 link_directories(${PROJECT_SOURCE_DIR}/lib/SDL)
 
 # Add the source files
-file(GLOB SOURCES "src/window/*.cpp")
+file(GLOB SOURCES "src/*.cpp")
 
 # Add the executable
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} src/main.cpp)
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
 # Link SDL2
 target_link_libraries(SoftwareRenderer ${PROJECT_SOURCE_DIR}/lib/SDL/SDL2.lib ${PROJECT_SOURCE_DIR}/lib/SDL/SDL2main.lib)
