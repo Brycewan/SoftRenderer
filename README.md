@@ -6,13 +6,13 @@ Dev environment: Win11 + Visual Studio 2022
 
 
 
-# Dependency
+## Dependency
 
 - SDL2
 
 
 
-# Feature
+## Feature
 
 - Line drawing algorithm: DDA and Bresenham
 
