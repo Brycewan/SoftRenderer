@@ -13,6 +13,10 @@ int main(int argc, char* args[]) {
 
   Framebuffer framebuffer(WINDOW_WIDTH, WINDOW_HEIGHT);
 
+  Shader shader;
+
+  Scene scene;
+
   while (window.get_running()) {
     window.process_input();
 
@@ -20,11 +24,12 @@ int main(int argc, char* args[]) {
     //clear_frame_buffer();
     framebuffer.clear();
 
+    shader.direct(&scene, framebuffer);
     //// test draw function
-    framebuffer.draw_pixel(100, 200, 0xffffffff);
+    framebuffer.drawPixel(100, 200, 0xffffffff);
     framebuffer.draw_rectangle(400, 300, 10, 10, 0xffffff00);
-    framebuffer.DDA_line(100, 200, 400, 450, 0x00ffffff);
-    framebuffer.Bresenham_line(400, 450, 50, 250, 0x00ffffff);
+    framebuffer.drawLineDDA(100, 200, 400, 450, 0x00ffffff);
+    framebuffer.drawLineBresenham(400, 450, 50, 250, 0x00ffffff);
 
     // render frame
     window.render(&framebuffer);

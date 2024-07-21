@@ -10,5 +10,5 @@ private:
   Camera* camera;
   std::vector<Light*> lights;
   std::vector<Object*> objects;
-
+public:
 };
