@@ -19,4 +19,7 @@ public:
   void drawLineDDA(int x0, int y0, int x1, int y1, Uint32 color);
   void drawLineBresenham(int x0, int y0, int x1, int y1, Uint32 color);
   void draw_rectangle(int x, int y, int width, int height, Uint32 color);
+  int getHeight() const { return HEIGHT; }
+  int getWidth() const { return WIDTH; }
+
 };

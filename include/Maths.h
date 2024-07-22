@@ -10,7 +10,8 @@ public:
 
   Vec3 operator+(const Vec3& other) const;
   Vec3 operator-(const Vec3& other) const;
-  Vec3 operator*(float scalar) const;
+  //Vec3 operator*(float scalar) const;
+  friend Vec3 operator*(float scalar, const Vec3& vec);
   float dot(const Vec3& other) const;
   Vec3 cross(const Vec3& other) const;
   float length() const;

@@ -13,8 +13,12 @@ Vec3 Vec3::operator-(const Vec3& other) const {
   return Vec3(x - other.x, y - other.y, z - other.z);
 }
 
-Vec3 Vec3::operator*(float scalar) const {
-  return Vec3(x * scalar, y * scalar, z * scalar);
+//Vec3 Vec3::operator*(float scalar) const {
+//  return Vec3(x * scalar, y * scalar, z * scalar);
+//}
+
+Vec3 operator*(float scalar, const Vec3& vec) {
+  return Vec3(vec.x * scalar, vec.y * scalar, vec.z * scalar);
 }
 
 float Vec3::dot(const Vec3& other) const {

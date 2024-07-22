@@ -5,5 +5,6 @@
 
 class Shader {
 public:
-  void direct(Scene* scene, Framebuffer& framebuffer);
+  void wireframe(Scene* scene, Framebuffer& framebuffer) const;
+  void direct(Scene* scene, Framebuffer& framebuffer) const;
 };

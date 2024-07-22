@@ -1,4 +1,4 @@
-# SoftwareRenderer
+# Software Renderer
 
 Dev language: C++
 
@@ -15,4 +15,5 @@ Dev environment: Win11 + Visual Studio 2022
 ## Feature
 
 - Line drawing algorithm: DDA and Bresenham
+- MVP transformation
 
